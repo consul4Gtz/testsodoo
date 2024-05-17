@@ -9,7 +9,7 @@ class my_module(models.Model):
     name = fields.Char()
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text()
+    description = fields.Text('Descripción')
     #cambios realizados 
     start_datetime = fields.Datetime('Tiempo inicial', default=lambda self: fields.Datetime.now())
 

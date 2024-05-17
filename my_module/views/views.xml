@@ -1,13 +1,13 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    
     <record model="ir.ui.view" id="my_module.list">
       <field name="name">my_module list</field>
       <field name="model">my_module.my_module</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="description"/>
           <field name="value"/>
           <field name="value2"/>
           <field name="start_datetime"/>
@@ -19,7 +19,7 @@
     <!-- actions opening views on models -->
    
     <record model="ir.actions.act_window" id="my_module.action_window">
-      <field name="name">my_module window</field>
+      <field name="name">Ventana 1 del modulo</field>
       <field name="res_model">my_module.my_module</field>
       <field name="view_mode">tree,form</field>
     </record>
