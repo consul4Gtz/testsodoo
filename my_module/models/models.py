@@ -6,10 +6,10 @@ from unidecode import unidecode
 class my_module(models.Model):
     _name = 'my_module.my_module'
 
-    name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
+    name = fields.Char("Nombre")
     description = fields.Text('Descripción')
+    value = fields.Integer("Valor")
+    value2 = fields.Float("Cantidad",compute="_value_pc", store=True)
     #cambios realizados 
     start_datetime = fields.Datetime('Tiempo inicial', default=lambda self: fields.Datetime.now())
 
