@@ -11,7 +11,7 @@ class my_module(models.Model):
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
     #cambios realizados 
-    start_datetime = fields.Datetime('Start time', default=lambda self: fields.Datetime.now())
+    start_datetime = fields.Datetime('Tiempo inicial', default=lambda self: fields.Datetime.now())
 
     @api.model  
     def create(self, values):
