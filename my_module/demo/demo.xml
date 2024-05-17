@@ -10,7 +10,7 @@
              <field name="name">Object 1</field> 
              <field name="value">10</field> 
            </record> 
-          
+          <!-- 
            <record id="object2" model="my_module.my_module"> 
              <field name="name">Object 2</field> 
              <field name="value">20</field> 
@@ -24,7 +24,7 @@
            <record id="object4" model="my_module.my_module"> 
              <field name="name">Object 4</field> 
              <field name="value">40</field> 
-           </record> 
+           </record>  -->
           
     </data>
 </odoo>
