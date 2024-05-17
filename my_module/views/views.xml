@@ -15,18 +15,14 @@
       </field>
     </record>
   
-
     <!-- actions opening views on models -->
-   
     <record model="ir.actions.act_window" id="my_module.action_window">
       <field name="name">Ventana 1 del modulo</field>
       <field name="res_model">my_module.my_module</field>
       <field name="view_mode">tree,form</field>
     </record>
-   
 
     <!-- server action to the one above -->
-  
     <record model="ir.actions.server" id="my_module.action_server">
       <field name="name">my_module server</field>
       <field name="model_id" ref="model_my_module_my_module"/>
@@ -40,22 +36,17 @@
       </field>
     </record>
    
-
     <!-- Top menu item -->
-    
     <menuitem name="Modulo Prueba" id="my_module.menu_root"/>
    
     <!-- menu categories -->
-    
     <menuitem name="Menu 1" id="my_module.menu_1" parent="my_module.menu_root"/>
     <menuitem name="Menu 2" id="my_module.menu_2" parent="my_module.menu_root"/>
    
     <!-- actions -->
-   
     <menuitem name="Lista" id="my_module.menu_1_list" parent="my_module.menu_1"
               action="my_module.action_window"/>
     <menuitem name="Otra Lista" id="my_module" parent="my_module.menu_2"
               action="my_module.action_server"/>
-   
   </data>
 </odoo>
