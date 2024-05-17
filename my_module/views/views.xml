@@ -43,7 +43,7 @@
 
     <!-- Top menu item -->
     
-    <menuitem name="my_module" id="my_module.menu_root"/>
+    <menuitem name="Modulo Prueba" id="my_module.menu_root"/>
    
     <!-- menu categories -->
     
@@ -52,9 +52,9 @@
    
     <!-- actions -->
    
-    <menuitem name="List" id="my_module.menu_1_list" parent="my_module.menu_1"
+    <menuitem name="Lista" id="my_module.menu_1_list" parent="my_module.menu_1"
               action="my_module.action_window"/>
-    <menuitem name="Server to list" id="my_module" parent="my_module.menu_2"
+    <menuitem name="Otra Lista" id="my_module" parent="my_module.menu_2"
               action="my_module.action_server"/>
    
   </data>

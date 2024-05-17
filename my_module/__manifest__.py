@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "my_module",
+    'name': "Modulo Prueba",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        modulo de prueba para la creacion de un modulo en odoo""",
 
     'description': """
         Es un modulo de prueba para la creacion de un modulo en odoo
@@ -17,7 +16,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.6',
+    'version': '0.8',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
