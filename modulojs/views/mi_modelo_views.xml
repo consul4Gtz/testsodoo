@@ -1,7 +1,7 @@
 <odoo>
     <record id="view_mi_modelo_form" model="ir.ui.view">
         <field name="name">mi.modelo.form</field>
-        <field name="model">modulo.mi_modelo</field>
+        <field name="model">mi_modulo.mi_modelo</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
