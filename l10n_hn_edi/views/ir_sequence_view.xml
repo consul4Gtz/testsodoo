@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="inherited_view_sequence" model="ir.ui.view">
+        <field name="name">Secuencia CAI</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="base.sequence_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='implementation']" position="after">
+                <field name="l10n_hn_edi_cai_id"/>
+                <label for="l10n_hn_min_range_number" string="Range" attrs="{'invisible': [('l10n_hn_edi_cai_id', '=', False)]}"/>
+                <div attrs="{'invisible': [('l10n_hn_edi_cai_id', '=', False)]}">
+                    <field name="l10n_hn_min_range_number" class="oe_inline" attrs="{'required': [('l10n_hn_edi_cai_id', '!=', False)]}"/> - <field name="l10n_hn_max_range_number" class="oe_inline" attrs="{'required': [('l10n_hn_edi_cai_id', '!=', False)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

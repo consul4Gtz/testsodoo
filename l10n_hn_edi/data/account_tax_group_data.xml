@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Account Tax Group -->
+    <record id="tax_hn_15" model="account.tax.group">
+        <field name="name">IVA 15%</field>
+    </record>
+    <record id="tax_hn_exe" model="account.tax.group">
+        <field name="name">Exento</field>
+    </record>
+    <record id="tax_hn_exo" model="account.tax.group">
+        <field name="name">Exonerado</field>
+    </record>
+    <record id="tax_hn_18" model="account.tax.group">
+        <field name="name">IVA 18%</field>
+    </record>
+
+</odoo>

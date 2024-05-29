@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form_inherit_l10n_hn" model="ir.ui.view">
+        <field name="model">account.journal</field>
+        <field name="name">account.journal.form.inherit.hn</field>
+        <field name="inherit_id" ref="l10n_latam_invoice_document.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <field name="refund_sequence" position="attributes">
+                <attribute name="attrs">{'invisible': [('l10n_latam_use_documents', '=', True), ('country_code', '=', 'HN')]}</attribute>
+            </field>
+            <xpath expr="//form/sheet/notebook/page[@name='advanced_settings']/group" position="inside">
+                <group string="eInvoicing HN" attrs="{'invisible': ['|', ('l10n_latam_use_documents', '=', False), ('country_code', '!=', 'HN')]}">
+                    <field name="l10n_hn_edi_fe_seq_id" attrs="{'invisible': [('type', '!=', 'sale')]}"/>
+                    <field name="l10n_hn_edi_nc_seq_id" attrs="{'invisible': [('type', '!=', 'sale')]}"/>
+                    <field name="l10n_hn_edi_nd_seq_id" attrs="{'invisible': [('type', '!=', 'sale')]}"/>
+                    <field name="l10n_hn_address_issued_id" context="{'default_type': 'invoice'}"/>
+                </group>
+                <group string="eInvoicing HN" attrs="{'invisible': ['|', ('type', '!=', 'general'), ('country_code', '!=', 'HN')]}">
+                    <field name="l10n_hn_edi_wh_seq_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="l10n_hn_edi.AccountWhtaxField" owl="1">
+        <div>
+
+            <div>
+                <strong class="float-start"   t-esc="title"/>
+            </div>
+
+            <table style="width:100%;">
+                <t t-foreach="lines" t-as="line" t-key="line_index">
+                    <tr>
+                        <td style="width: 10em;">
+                            <i class="o_field_widget text-start o_payment_label"><t t-esc="line.whtax_name"></t></i>
+                        </td>
+                        <td style="width: 15em;">
+                            <t t-if="line.position === 'before'">
+                                <t t-esc="line.currency"/>
+                            </t>
+                            <t t-esc="line.amount"/>
+                            <t t-if="line.position === 'after'">
+                                <t t-esc="line.currency"/>
+                            </t>
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+
+</templates>
