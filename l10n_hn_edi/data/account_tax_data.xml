@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="2080101" model="account.account">
+        <field name="name">IVA trasladado cobrado</field>
+        <field name="code">2080101</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="reconcile" eval="False"/>
+    </record>
+     <!-- ISV Compra -->
+    <record id="isc15" model="account.tax">
+        <field name="name">ISC 15%</field>
+        <field name="description">ISV 15%</field>
+        <field name="amount" eval="15"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include" eval="False"/>
+        <field name="tax_group_id" ref="tax_hn_15"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- ISV Compra -->
+    <record id="isc18" model="account.tax">
+        <field name="name">ISC 18%</field>
+        <field name="description">ISV 18%</field>
+        <field name="amount" eval="18"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include" eval="False"/>
+        <field name="tax_group_id" ref="tax_hn_18"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- EXE compra -->
+    <record id="exeisc" model="account.tax">
+        <field name="name">EXEISC</field>
+        <field name="description">EXE</field>
+        <field name="amount" eval="0"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include" eval="False"/>
+        <field name="tax_group_id" ref="tax_hn_exe"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- EXO compra -->
+    <record id="exoisc" model="account.tax">
+        <field name="name">EXOISC</field>
+        <field name="description">EXO</field>
+        <field name="amount" eval="0"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="price_include" eval="False"/>
+        <field name="tax_group_id" ref="tax_hn_exo"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- ISV Venta -->
+    <record id="isv15" model="account.tax">
+        <field name="name">ISV15%</field>
+        <field name="description">ISV 15%</field>
+        <field name="amount" eval="15"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include" eval="True"/>
+        <field name="tax_group_id" ref="tax_hn_15"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- ISV Compra -->
+    <record id="isv18" model="account.tax">
+        <field name="name">ISV 18%</field>
+        <field name="description">ISV 18%</field>
+        <field name="amount" eval="18"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include" eval="True"/>
+        <field name="tax_group_id" ref="tax_hn_18"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- EXO Venta -->
+    <record id="exoisv" model="account.tax">
+        <field name="name">EXOISV</field>
+        <field name="description">EXO</field>
+        <field name="amount" eval="0"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include" eval="True"/>
+        <field name="tax_group_id" ref="tax_hn_exo"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- EXE Venta -->
+    <record id="exeisv" model="account.tax">
+        <field name="name">EXEISV</field>
+        <field name="description">EXE</field>
+        <field name="amount" eval="0"/>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="price_include" eval="True"/>
+        <field name="tax_group_id" ref="tax_hn_exe"/>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <!-- Withholding -->
+    <record id="account_wtax_12_5" model="account.tax">
+        <field name="name">Retención 12.5% ISR Honorarios  Art. 50</field>
+        <field name="description">12.5%</field>
+        <field name="amount">12.5</field>
+        <field name="type_tax_use">none</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <record id="account_wtax_1" model="account.tax">
+        <field name="name">Retención 1% Acuerdo 217-2010</field>
+        <field name="description">1.0%</field>
+        <field name="amount">1.0</field>
+        <field name="type_tax_use">none</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <record id="account_wtax_10" model="account.tax">
+        <field name="name">Retención ISR No Residentes Art. 5to (10%)</field>
+        <field name="description">10.0%</field>
+        <field name="amount">10.0</field>
+        <field name="type_tax_use">none</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+    <record id="account_wtax_25" model="account.tax">
+        <field name="name">Retención ISR No Residentes Art. 5to (25%)</field>
+        <field name="description">25.0%</field>
+        <field name="amount">25.0</field>
+        <field name="type_tax_use">none</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('2080101'),
+            }),
+        ]"/>
+    </record>
+</odoo>
