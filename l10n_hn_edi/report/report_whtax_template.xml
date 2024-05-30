@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- valorizacion-->
+    <template id="report_whtax_document">
+        <t t-call="web.basic_layout">
+            <t t-set="o" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+            <t t-set="address">
+                <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                <div t-if="o.partner_id.vat" class="mt16">
+                    <t t-if="o.company_id.country_id.vat_label" t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                    <t t-else="">Tax ID</t>: <span t-field="o.partner_id.vat"/>
+                </div>
+            </t>
+            <div class="page">
+                <div class="header">
+                    <div class="row" style="border-bottom: 2px solid black;">
+                        <div class="col-3" style="margin-top:10px">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height:60px;display:block;" alt="Logo"/>
+                        </div>
+                        <div class="col-4" style="font-size:11px;">
+                            <br/>
+                            <b>
+                                <span style="font-size:12px;" t-field="o.company_id"/>
+                            </b>
+                            <br/>
+                            <span>R.T.N</span>
+                            <span t-field="o.company_id.vat"/>
+                            <br/>
+                            <span t-field="o.company_id.street"/>
+                            <br/>
+                            <span>Tel</span>
+                            <span t-field="o.company_id.phone"/>
+                        |
+                            
+                            
+                            <span t-field="o.company_id.email"/>
+                            <br/>
+                        </div>
+                        <div class="col-5" style="text-align:right">
+                            <span>
+                                <h5>
+                                    <span>RETENCION</span>
+                                    <br/>
+                                    No.: 
+                                    <span t-if="o.name != '/'" t-field="o.name"/>
+                                </h5>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5" style="margin-bottom:10px; font-size:small">
+                        <span> Proveedor:</span>
+                        <span t-field="o.partner_id"/>
+                        <br/>
+                     RTN:
+                        
+                        
+                        <span t-field="o.partner_id.vat"/>
+                        <br/>
+                     Dirección: 
+                        
+                        
+                        <span t-field="o.partner_id.street"/>
+                        <br/>
+                     Teléfono: 
+                        
+                        
+                        <span t-field="o.partner_id.phone"/>
+                        <br/>
+                    </div>
+                    <div class="col-6" style="margin-bottom:10px; font-size:small">
+                        <t t-set="min_range_number" t-value="'%s%s' % (o.l10n_hn_edi_sequence_id.prefix, str(o.l10n_hn_edi_sequence_id.l10n_hn_min_range_number).zfill(o.l10n_hn_edi_sequence_id.padding))"/>
+                        <t t-set="max_range_number" t-value="'%s%s' % (o.l10n_hn_edi_sequence_id.prefix, str(o.l10n_hn_edi_sequence_id.l10n_hn_max_range_number).zfill(o.l10n_hn_edi_sequence_id.padding))"/>
+                        <b>CAI:
+                            
+                            
+                            <b>
+                                <span t-field="o.journal_id.l10n_hn_edi_wh_seq_id.l10n_hn_edi_cai_id.name"/>
+                            </b>
+                            <br/>
+                        </b>
+                        <span>Rango Autorizado</span>
+                        <span t-esc="min_range_number"/> al
+                     
+                        
+                        
+                        <span t-esc="max_range_number"/>
+                        <br/>
+                     Fecha limite de emisión: 
+                        
+                        
+                        <b>
+                            <span t-field="o.journal_id.l10n_hn_edi_wh_seq_id.l10n_hn_edi_cai_id.authorization_end_date"/>
+                        </b>
+                        <br/>
+                     Fecha de Documento: 
+                        
+                        
+                        <span t-field="o.date"/>
+                        <br/>
+                    </div>
+                </div>
+                <table class="table table-sm o_main_table" style="margin-top:20px;" name="whtax_line_table">
+                    <thead>
+                        <tr>
+                            <th name="th_invoice" class="text-left">
+                                <span>Retencion</span>
+                            </th>
+                            <th name="th_base" class="text-right">
+                                <span>Monto base</span>
+                            </th>
+                            <th name="th_wtaxrate" class="text-right">
+                                <span>Retención (%)</span>
+                            </th>
+                            <th name="th_wtaxamount" class="text-right">
+                                <span>Retenido</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="whtax_tbody">
+                        <t t-foreach="o.line_ids" t-as="line">
+                            <tr>
+                                <td>
+                                    <span t-field="line.wtax_id"/>
+                                </td>
+                                <td class="text-right">
+                                    <span class="text-nowrap" t-field="line.base_amount"/>
+                                </td>
+                                <td class="text-right">
+                                    <span class="text-nowrap" t-field="line.wtax_rate"/>
+                                </td>
+                                <td class="text-right o_price_total">
+                                    <span class="text-nowrap" t-field="line.wtax_amount"/>
+                                </td>
+                            </tr>
+                           <tr>
+                                <td class="text-left">
+                                    <span t-field="line.invoice_id.ref"/>
+                                    <span t-if="line.invoice_id.journal_id.name == 'Boleta de Compras'" t-field="line.invoice_id.name"/>
+                                </td>
+                                <td> CAI:  
+                                     
+                                    <span t-field="line.invoice_id.l10n_hn_edi_cai_id.name"/> 
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <div id="total" class="row">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-5'} ml-auto">
+                            <table class="table table-sm" style="page-break-inside: avoid;">
+                                <tr class="border-black o_total">
+                                    <td>
+                                        <strong>Monto Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="text-nowrap" t-field="o.wtax_tamount"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <p>
+                        <b>Resumen</b>
+                    </p>
+                    <div>
+                        <table class="table table-sm" style="width:30%">
+                            <!--<t t-foreach="json.loads(o.wtax_widget).get('content')" t-as="line">-->
+                            <t t-foreach="o.line_ids" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span>Retención 
+                                            
+                                            
+                                            <span class="text-nowrap" t-field="line.wtax_rate"/> %</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-nowrap" t-field="line.wtax_amount"/>
+                                    </td>
+                                    <!--<td><span t-esc="line.get('wtax_rate')"/></td><td><span t-esc="line.get('amount')" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/></td>
+                                -->
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:65px">
+                    <div class="col-4" align="Center">
+                        <b>__________________________________</b>
+                        <br/>
+                        <b>********Autorizado*********</b>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-12 mt-1">
+                            <div class="col-12 text-left" style="border: 1px solid black;"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-1 text-left">
+                            <div t-if="report_type == 'pdf'">
+                                <span>Original</span>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-1 text-right">
+                            <span>Fecha: 
+                                
+                                
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y/%m/%d %H:%M')"/></span>
+                        </div>
+                        <div class="col-6 mt-1 text-right">
+                         Page: 
+                            
+                            
+                            <span class="page"/> / 
+                            
+                            
+                            <span class="topage"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-1">
+                            <div t-if="report_type == 'pdf'" class="text-left"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_whtax">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="l10n_hn_edi.report_whtax_document" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

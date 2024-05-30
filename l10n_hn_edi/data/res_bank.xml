@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record model="res.bank" id="banco_1">
+        <field name="name">Banco de Honduras S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_2">
+        <field name="name">Banco Atlántida S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_3">
+        <field name="name">Banco de Occidente S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_4">
+        <field name="name">Banco de Los Trabajadores</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_5">
+        <field name="name">Banco Financiera Centroamericana S.A. (FICENSA)</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_6">
+        <field name="name">Banco Hondureño del Café S.A. (BANHCAFE)</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_7">
+        <field name="name">Banco del País S.A. (BANPAIS)</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_8">
+        <field name="name">Banco Financiera Comercial Hondureña S.A. (FICOHSA)</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_9">
+        <field name="name">Banco Lafise Honduras  S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_10">
+        <field name="name">Banco Davivienda Honduras S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_11">
+        <field name="name">Banco Promérica S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_12">
+        <field name="name">Banco de Desarrollo Rural Honduras S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_13">
+        <field name="name">Banco Azteca de Honduras S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_14">
+        <field name="name">Banco Popular S.A.</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_15">
+        <field name="name">Banco de América Central– Bac|Honduras</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_16">
+        <field name="name">Banco Nacional de Desarrollo Agrícola</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+    <record model="res.bank" id="banco_17">
+        <field name="name">Banco Hondureño para la Producción y la Vivienda (BANHPROVI)</field>
+        <field name="country" ref="base.hn"/>
+    </record>
+</odoo>
