@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-l10n_hn_edi.access_account_withholding,access_account_withholding,l10n_hn_edi.model_account_withholding,,1,1,1,1
-l10n_hn_edi.access_account_withholding_line,access_account_withholding_line,l10n_hn_edi.model_account_withholding_line,,1,1,1,1
-l10n_hn_edi.access_l10n_hn_edi_cai,access_l10n_hn_edi_cai,l10n_hn_edi.model_l10n_hn_edi_cai,,1,1,1,1
