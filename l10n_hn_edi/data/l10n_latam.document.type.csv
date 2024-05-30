@@ -1,4 +1,0 @@
-id,sequence,code,name,report_name,internal_type,doc_code_prefix,country_id/id,active
-sar_fact,1,01,Factura,FAC#,invoice,01,base.hn,True
-sar_nc,2,06,Nota de Credito,NC#,credit_note,06,base.hn,True
-sar_nd,3,07,Nota de Debito,ND#,debit_note,07,base.hn,True
